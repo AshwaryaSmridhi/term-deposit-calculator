@@ -17,3 +17,51 @@ export const Title = styled.h2`
   font-size: 1.5rem;
   color: #333;
 `;
+
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Label = styled.label`
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #444;
+`;
+
+export const Input = styled.input`
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+export const Select = styled.select`
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+export const Button = styled.button`
+  padding: 10px;
+  background-color: #ff7a64;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgb(255, 239, 107);
+    color: #000;
+  }
+`;
