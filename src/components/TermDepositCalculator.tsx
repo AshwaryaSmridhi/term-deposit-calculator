@@ -1,4 +1,4 @@
-import { CalculatorContainer, Title } from '../styles/TermDepositCalculator.styles';
+import { CalculatorContainer, Result, Title } from '../styles/TermDepositCalculator.styles';
 import { Form } from './Form';
 
 export const TermDepositCalculator = () => {
@@ -6,6 +6,7 @@ export const TermDepositCalculator = () => {
         <CalculatorContainer>
             <Title>Term Deposit Calculator </Title>
             <Form />
+            <Result>Final Balance: ${100000000}</Result>
         </CalculatorContainer>
     )
 }

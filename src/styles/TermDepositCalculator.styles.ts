@@ -65,3 +65,10 @@ export const Button = styled.button`
     color: #000;
   }
 `;
+
+export const Result = styled.div`
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
+`;

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Button, FormContainer } from '../styles/TermDepositCalculator.styles';
-import { StartAmountInput } from './form/StartAmountInput';
-import InterestRateInput from './form/InterestRateInput';
-import InvestmentTermInput from './form/InvestmentTermInput';
-import InterestPaidInput from './form/InterestPaidInput';
+import { StartAmountInput } from './formInputs/StartAmountInput';
+import InterestRateInput from './formInputs/InterestRateInput';
+import InvestmentTermInput from './formInputs/InvestmentTermInput';
+import InterestPaidInput from './formInputs/InterestPaidInput';
 
 export const Form = () => {
     const [startDeposit, setStartDeposit] = useState<number>(10000);
