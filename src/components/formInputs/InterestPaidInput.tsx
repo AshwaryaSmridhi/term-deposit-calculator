@@ -1,9 +1,10 @@
 import React from 'react';
 import { InputGroup, Label, Select } from '../../styles/TermDepositCalculator.styles';
+import { InterestPaidFrequency } from '../../util/types';
 
 interface InterestPaidProps {
-    value: 'monthly' | 'quarterly' | 'annually' | 'atMaturity';
-    setValue: (value: 'monthly' | 'quarterly' | 'annually' | 'atMaturity') => void;
+    value: InterestPaidFrequency;
+    setValue: (value: InterestPaidFrequency) => void;
 }
 
 const InterestPaidInput: React.FC<InterestPaidProps> = ({ value, setValue }) => {
@@ -11,10 +12,11 @@ const InterestPaidInput: React.FC<InterestPaidProps> = ({ value, setValue }) => 
         <InputGroup>
             <Label>Interest Paid</Label>
             <Select value={value} onChange={(e) => setValue(e.target.value as any)}>
-                <option value="monthly">Monthly</option>
-                <option value="quarterly">Quarterly</option>
-                <option value="annually">Annually</option>
-                <option value="atMaturity">At Maturity</option>
+                {Object.values(InterestPaidFrequency).map((frequency) => (
+                    <option key={frequency} value={frequency}>
+                        {frequency}
+                    </option>
+                ))}
             </Select>
         </InputGroup>
     );
