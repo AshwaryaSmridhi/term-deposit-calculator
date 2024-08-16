@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Button, FormContainer } from '../styles/TermDepositCalculator.styles';
-import { StartAmountInput } from './formInputs/StartAmountInput';
-import InterestRateInput from './formInputs/InterestRateInput';
+import { StartAmountInput } from './formInputs/StartAmountInput/StartAmountInput';
+import InterestRateInput from './formInputs/InterestRateInput/InterestRateInput';
 import InvestmentTermInput from './formInputs/InvestmentTermInput/InvestmentTermInput';
-import InterestPaidInput from './formInputs/InterestPaidInput';
+import InterestPaidInput from './formInputs/InterestPaidInput/InterestPaidInput';
 import { InterestPaidFrequency } from '../util/types';
 import { calculateTermDepositFinalBalance } from '../util/calculateTermDepositFinalBalance';
 

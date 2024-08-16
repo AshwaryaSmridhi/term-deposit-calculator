@@ -5,7 +5,7 @@ test('renders term deposit calculator', () => {
   render(<TermDepositCalculator />);
   const termDepositText = screen.getByText(/Term Deposit Calculator/i);
   const startAmountLabel = screen.getByText('Start Deposit Amount ($)');
-  const interestRateLabel = screen.getByText('Interest Rate (%)');
+  const interestRateLabel = screen.getByText('Interest Rate (% per annum)');
   const investmentTermLabel = screen.getByText(/Investment Term/i);
   const interestPaidLabel = screen.getByText(/Interest Paid/i);
 

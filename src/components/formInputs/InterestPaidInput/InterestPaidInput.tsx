@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputGroup, Label, Select } from '../../styles/TermDepositCalculator.styles';
-import { InterestPaidFrequency } from '../../util/types';
+import { InputGroup, Label, Select } from '../../../styles/TermDepositCalculator.styles';
+import { InterestPaidFrequency } from '../../../util/types';
 
 interface InterestPaidProps {
     value: InterestPaidFrequency;

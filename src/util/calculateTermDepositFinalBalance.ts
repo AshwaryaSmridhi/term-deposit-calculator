@@ -46,8 +46,8 @@ const getInterestPeriodsPerYear = (interestPaid: InterestPaidFrequency) => {
 }
 
 const validateInputs = (termDepositFields: TermDepositFields) => {
-    if (termDepositFields.startAmount < 1000 || termDepositFields.startAmount > 1500000) {
-        throw new Error("Invalid start amount. It must be between 1000 and 1500000.");
+    if (termDepositFields.startAmount < 10 || termDepositFields.startAmount > 1500000) {
+        throw new Error("Invalid start amount. It must be between 10 and 1500000.");
     }
 
     if (termDepositFields.interestRate < 0 || termDepositFields.interestRate > 15) {

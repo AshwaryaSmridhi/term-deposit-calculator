@@ -95,7 +95,7 @@ describe("calculateTermDepositFinalBalance", () => {
         }
         expect(() => {
             calculateTermDepositFinalBalance(badStartAmount)
-        }).toThrow("Invalid start amount. It must be between 1000 and 1500000.")
+        }).toThrow("Invalid start amount. It must be between 10 and 1500000.")
     })
 
     it("throws an error for start amount under the limit", () => {
@@ -105,7 +105,7 @@ describe("calculateTermDepositFinalBalance", () => {
         }
         expect(() => {
             calculateTermDepositFinalBalance(badStartAmount)
-        }).toThrow("Invalid start amount. It must be between 1000 and 1500000.")
+        }).toThrow("Invalid start amount. It must be between 10 and 1500000.")
     })
 
     it("throws an error for interest rates over the limit", () => {
