@@ -72,3 +72,19 @@ export const Result = styled.div`
   color: #333;
   font-weight: bold;
 `;
+
+export const Slider = styled.input`
+    width: 100%;
+    margin: 0.5rem 0;
+    background: #ff7a64;
+    -webkit-appearance: none;
+
+   &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: rgb(255, 239, 107);
+        cursor: pointer;
+    }
+`;

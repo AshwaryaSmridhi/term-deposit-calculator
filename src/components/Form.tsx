@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, FormContainer } from '../styles/TermDepositCalculator.styles';
 import { StartAmountInput } from './formInputs/StartAmountInput';
 import InterestRateInput from './formInputs/InterestRateInput';
-import InvestmentTermInput from './formInputs/InvestmentTermInput';
+import InvestmentTermInput from './formInputs/InvestmentTermInput/InvestmentTermInput';
 import InterestPaidInput from './formInputs/InterestPaidInput';
 import { InterestPaidFrequency } from '../util/types';
 import { calculateTermDepositFinalBalance } from '../util/calculateTermDepositFinalBalance';
@@ -14,7 +14,7 @@ interface FormProps {
 export const Form: React.FC<FormProps> = ({ setFinalBalance }) => {
     const [startAmount, setStartAmount] = useState<number>(10000);
     const [interestRate, setInterestRate] = useState<number>(0.25);
-    const [investmentTerm, setInvestmentTerm] = useState<number>(1);
+    const [investmentTerm, setInvestmentTerm] = useState<number>(3);
     const [interestPaid, setInterestPaid] = useState<InterestPaidFrequency>(InterestPaidFrequency.Monthly);
 
     const handleSubmit = (e: React.FormEvent) => {
