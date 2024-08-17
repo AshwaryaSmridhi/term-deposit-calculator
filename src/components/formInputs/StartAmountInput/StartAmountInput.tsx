@@ -7,18 +7,6 @@ interface StartDepositAmountProps {
 }
 
 export const StartAmountInput: React.FC<StartDepositAmountProps> = ({ value, setValue }) => {
-    const handleBlur = () => {
-        if (!value) {
-            setValue(10);
-        }
-        else if (value < 10) {
-            setValue(10);
-        }
-        else if (value > 1500000) {
-            setValue(1500000);
-        }
-
-    };
     return (
         <InputGroup>
             <Label>Start Deposit Amount ($)</Label>
@@ -26,10 +14,7 @@ export const StartAmountInput: React.FC<StartDepositAmountProps> = ({ value, set
                 type="number"
                 value={value}
                 onChange={(e) => setValue(Number(e.target.value))}
-                onBlur={handleBlur}
                 placeholder="e.g. 10000"
-                min="10"
-                max="15000000"
                 required
             />
         </InputGroup>

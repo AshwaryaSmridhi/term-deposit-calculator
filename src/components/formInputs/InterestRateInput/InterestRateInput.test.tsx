@@ -35,15 +35,6 @@ describe('InterestRateInput', () => {
         expect(setValue).toHaveBeenCalledWith(0);
     });
 
-    test('does not allow value above 15', () => {
-        const { getByTestId } = render(<InterestRateInput value={value} setValue={setValue} />);
-        const input = getByTestId('interest-rate') as HTMLInputElement
-        fireEvent.change(input, { target: { value: '16' } });
-        fireEvent.blur(input);
-
-        expect(setValue).toHaveBeenCalledWith(15);
-    });
-
     test('handles empty input correctly', () => {
         const { getByTestId } = render(<InterestRateInput value={value} setValue={setValue} />);
         const input = getByTestId('interest-rate') as HTMLInputElement

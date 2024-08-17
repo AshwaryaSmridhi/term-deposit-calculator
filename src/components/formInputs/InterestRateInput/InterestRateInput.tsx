@@ -17,23 +17,8 @@ const InterestRateInput: React.FC<InterestRateProps> = ({ value, setValue }) => 
         let newValue = parseFloat(inputValue);
         if (newValue < 0) {
             newValue = 0;
-        } else if (newValue > 15) {
-            newValue = 15;
-        }
+        } 
         setValue(newValue);
-    };
-    const handleBlur = () => {
-        if (!value) {
-            setValue(0);
-        }
-        else if (value < 0) {
-            console.log('Inside 0')
-            setValue(0);
-        }
-        else if (value > 15) {
-            setValue(15);
-        }
-
     };
     return (
         <InputGroup>
@@ -44,11 +29,7 @@ const InterestRateInput: React.FC<InterestRateProps> = ({ value, setValue }) => 
                 step="0.01"
                 value={value}
                 onChange={handleChange}
-                // onChange={(e) => setValue(parseFloat(e.target.value) || 0)}
-                onBlur={handleBlur}
                 placeholder="e.g. 1.10"
-                min="0"
-                max="15"
                 required
             />
         </InputGroup>
