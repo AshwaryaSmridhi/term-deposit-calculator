@@ -2,10 +2,15 @@
 
 This project is a Term Deposit Calculator built with React. It allows users to calculate the final balance of a term deposit based on various inputs such as start amount, interest rate, investment term, and interest payment frequency.
 
+
+https://github.com/user-attachments/assets/4541fd64-6fb2-44e1-b7b0-716ca5e774e5
+
+
+
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
+- [Run](#run)
 - [Testing](#testing)
 - [File Structure](#file-structure)
 
