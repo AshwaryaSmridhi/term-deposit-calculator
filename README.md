@@ -7,6 +7,7 @@ This project is a Term Deposit Calculator built with React. It allows users to c
 - [Installation](#installation)
 - [Usage](#usage)
 - [Testing](#testing)
+- [File Structure](#file-structure)
 
 ## Installation
 
@@ -19,8 +20,31 @@ To start the development server, run: `npm start`
 
 This will start the application on http://localhost:3000.
 
-### Testing
+## Testing
 To run the tests, use:
 `npm test`
 
+## File Structure
+```
+.
+├── README.md
+├── package.json
+├── tsconfig.json
+├── src/
+│   ├── components/
+│   │   ├── TermDepositCalculator.tsx
+│   │   ├── Form.tsx
+│   │   ├── formInputs/
+│   │   |   ├── InterestPaidInput/
+│   │   |   ├── InterestRateInput/
+│   │   |   ├── InvestmentTermInput/
+│   │   |   ├── StartAmountInput/
+│   ├── styles/
+│   │   ├── TermDepositCalculatorStyles.ts
+│   ├── types/
+│   │   ├── index.ts
+│   ├── utils/
+│   │   ├──calculateTermDepositFinalBalance.ts
+│   │   ├── calculateTermDepositFinalBalance.test.ts
+```
 
