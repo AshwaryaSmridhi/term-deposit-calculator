@@ -7,22 +7,56 @@ export const calculateTermDepositFinalBalance = (termDepositFields: TermDepositF
     const interestPeriodsPerYear: number = getInterestPeriodsPerYear(interestPaid);
     const investmentTermInYears = investmentTerm / 12;
 
-    const totalPeriods = interestPeriodsPerYear * investmentTermInYears;
+    const balance = calculateBalance(startAmount, interestRatePerAnnum, interestPaid, interestPeriodsPerYear, investmentTermInYears);
+    return getFinalBalance(balance);
+}
 
-    let balance: number
+
+export const calculateBalance = (
+    startAmount: number,
+    interestRatePerAnnum: number,
+    interestPaid: InterestPaidFrequency,
+    interestPeriodsPerYear: number,
+    investmentTermInYears: number
+): number => {
     if (interestPaid === InterestPaidFrequency.AtMaturity) {
         // For "At Maturity," there is no compounding until the end.
         // So this is simple interest calculation
-        balance = startAmount * (1 + interestRatePerAnnum * investmentTermInYears);
+        return calculateSimpleInterest(startAmount, interestRatePerAnnum, investmentTermInYears);
+    } else {
+        return calculateCompoundInterest(startAmount, interestRatePerAnnum, interestPeriodsPerYear, investmentTermInYears);
     }
-    else {
-        // Compound interest calculation
-        balance = startAmount * Math.pow(1 + interestRatePerAnnum / interestPeriodsPerYear, totalPeriods);
-    }
-    return Math.round(balance);
 }
 
-const getInterestPeriodsPerYear = (interestPaid: InterestPaidFrequency) => {
+export const calculateSimpleInterest = (
+    startAmount: number,
+    interestRatePerAnnum: number,
+    investmentTermInYears: number
+): number => {
+    return startAmount * (1 + interestRatePerAnnum * investmentTermInYears);
+}
+
+export const calculateCompoundInterest = (
+    startAmount: number,
+    interestRatePerAnnum: number,
+    interestPeriodsPerYear: number,
+    investmentTermInYears: number
+): number => {
+    const totalPeriods = interestPeriodsPerYear * investmentTermInYears;
+    return startAmount * Math.pow(1 + interestRatePerAnnum / interestPeriodsPerYear, totalPeriods);
+}
+
+export const getFinalBalance = (balance: number) => {
+    const decimalPart = balance % 1;
+    // We want to round down when balance is x.5
+    if (decimalPart === 0.5) {
+        return Math.floor(balance);
+    } else {
+        return Math.round(balance);
+    }
+}
+
+export const getInterestPeriodsPerYear = (interestPaid: InterestPaidFrequency) => {
     let interestPeriodsPerYear: number;
 
     switch (interestPaid) {
@@ -45,7 +79,7 @@ const getInterestPeriodsPerYear = (interestPaid: InterestPaidFrequency) => {
     return interestPeriodsPerYear;
 }
 
-const validateInputs = (termDepositFields: TermDepositFields) => {
+export const validateInputs = (termDepositFields: TermDepositFields) => {
     if (termDepositFields.startAmount < 10 || termDepositFields.startAmount > 1500000) {
         throw new Error("Invalid start amount. It must be between 10 and 1500000.");
     }
