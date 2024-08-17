@@ -88,3 +88,8 @@ export const Slider = styled.input`
         cursor: pointer;
     }
 `;
+
+export const ErrorMessage = styled.div`
+    color: red;
+    margin-bottom: 10px;
+`;
