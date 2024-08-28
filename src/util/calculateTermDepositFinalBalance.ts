@@ -92,3 +92,34 @@ export const validateInputs = (termDepositFields: TermDepositFields) => {
         throw new Error("Invalid investment term. It must be between 3 months and 5 years.");
     }
 }
+
+interface BalancePerMonth {
+    month: number,
+    interestEarned: number,
+    balance: number
+}
+
+// Go over each month
+// convert interest rate to a per month value
+// balance * interestPerMonth
+// calculate total balance for that month = current balance + interest
+// cumulative NewBalance - initialBalance
+
+export const calculateBalancePerMonth = (months: number, startingBalance: number, interestRate: number): BalancePerMonth[] => {
+    const interestPerMonth = interestRate / 12 / 100;
+    const balancePerMonth: BalancePerMonth[] = [];
+    let currentBalance = startingBalance;
+    for (let i = 1; i <= months; i++) {
+        const interestEarned = parseFloat((currentBalance * interestPerMonth).toFixed(2));
+        currentBalance = currentBalance + interestEarned;
+        const cumulativeInterestEarned = parseFloat((currentBalance - startingBalance).toFixed(2))
+
+        balancePerMonth.push({
+            month: i,
+            interestEarned: cumulativeInterestEarned,
+            balance: currentBalance
+        })
+    }
+
+    return balancePerMonth;
+}

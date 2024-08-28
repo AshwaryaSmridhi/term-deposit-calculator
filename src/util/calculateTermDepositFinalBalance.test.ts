@@ -1,5 +1,5 @@
 import { testCases } from "./__fixtures__/termDepositeTestCases";
-import { calculateTermDepositFinalBalance, getFinalBalance, getInterestPeriodsPerYear, validateInputs, calculateBalance, calculateSimpleInterest, calculateCompoundInterest } from "./calculateTermDepositFinalBalance";
+import { calculateTermDepositFinalBalance, getFinalBalance, getInterestPeriodsPerYear, validateInputs, calculateBalance, calculateSimpleInterest, calculateCompoundInterest, calculateBalancePerMonth } from "./calculateTermDepositFinalBalance";
 import { InterestPaidFrequency } from "./types";
 
 describe("calculateTermDepositFinalBalance", () => {
@@ -233,3 +233,40 @@ describe('getFinalBalance', () => {
         expect(getFinalBalance(100)).toBe(100);
     });
 });
+
+describe('calculateBalancePerMonth', () => {
+
+    // Month	Extra deposits	Interest Rate	Interest earned	Balance
+    // 1	$0.00	1.10%	$9.16	$10,009.16
+    // 2	$0.00	1.10%	$18.32	$10,018.32
+    // 3	$0.00	1.10%	$27.50	$10,027.50
+    // Give correct input we get the correct array out
+    it('calculate balance per month', () => {
+        const months = 3;
+        const interestRate = 1.10;
+        const balance = 10000
+
+        const balancePerMonth = calculateBalancePerMonth(months, balance, interestRate);
+        expect(balancePerMonth).toEqual([
+            {
+                month: 1,
+                interestEarned: 9.17,
+                balance: 10009.17
+            },
+            {
+                month: 2,
+                interestEarned: 18.35,
+                balance: 10018.35
+            },
+            {
+                month: 3,
+                interestEarned: 27.53,
+                balance: 10027.53
+            }
+        ])
+    })
+    // Given bad input we get error
+    // - zeros for months, balance, interest
+    // - negative
+    // - high number
+})
